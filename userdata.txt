@@ -1,0 +1,4 @@
+sudo yum install git -y
+git clone https://github.com/SoftManiaTech/splunk_cluster_admin_training.git
+sudo chmod +x splunk_cluster_admin_training/splunk-install.sh
+sudo ./splunk_cluster_admin_training/splunk-install.sh
