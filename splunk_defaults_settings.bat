@@ -1,25 +1,15 @@
-cd C:\Users\muham\Downloads\
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Indexer"'
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Indexer"'
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com echo [BANNER_MESSAGE_SINGLETON] >> /opt/splunk/etc/system/local/global-banner.conf
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com echo global_banner.visible = true >> /opt/splunk/etc/system/local/global-banner.conf
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com echo global_banner.message = Indexer >> /opt/splunk/etc/system/local/global-banner.conf
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com echo global_banner.background_color = blue >> /opt/splunk/etc/system/local/global-banner.conf
-ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-15-237-121-173.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk restart'
+cd C:\Users\murug\Documents\ssh_key_files
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-54-66-159-110.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Indexer" -auth admin:Pa55word'
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-54-66-159-110.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Indexer" -auth admin:Pa55word'
+curl -X POST -k -u admin:Pa55word https://54.66.159.110:8089/servicesNS/nobody/system/data/ui/global-banner/BANNER_MESSAGE_SINGLETON -d global_banner.message="Indexer" -d global_banner.background_color="blue" -d global_banner.visible=true
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-54-66-159-110.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk restart'
 
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-13-211-176-199.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Search_Head" -auth admin:Pa55word'
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-13-211-176-199.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Search_Head" -auth admin:Pa55word'
+curl -X POST -k -u admin:Pa55word https://13.211.176.199:8089/servicesNS/nobody/system/data/ui/global-banner/BANNER_MESSAGE_SINGLETON -d global_banner.message="Search_Head" -d global_banner.background_color="yellow" -d global_banner.visible=true
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-13-211-176-199.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk restart'
 
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Search_Head"'
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Search_Head"'
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com echo [BANNER_MESSAGE_SINGLETON] > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com echo global_banner.visible = true > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com echo global_banner.message = Search_Head > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com echo global_banner.background_color = yellow > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-13-38-97-216.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk restart'
-
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Forwarder"'
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Forwarder"'
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com echo [BANNER_MESSAGE_SINGLETON] > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com echo global_banner.visible = true > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com echo global_banner.message = Forwarder > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com echo global_banner.background_color = green > /opt/splunk/etc/system/local/global-banner.conf
-@REM ssh -o "StrictHostKeyChecking no" -i pariskey.pem.pem ec2-user@ec2-35-181-4-180.eu-west-3.compute.amazonaws.com runuser -l splunk -c '/opt/splunk/bin/splunk restart'
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-3-25-84-151.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set servername "Forwarder" -auth admin:Pa55word'
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-3-25-84-151.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk set default-hostname "Forwarder" -auth admin:Pa55word'
+curl -X POST -k -u admin:Pa55word https://3.25.84.151:8089/servicesNS/nobody/system/data/ui/global-banner/BANNER_MESSAGE_SINGLETON -d global_banner.message="Forwarder" -d global_banner.background_color="green" -d global_banner.visible=true
+ssh -o "StrictHostKeyChecking no" -i sydney_softmania.pem ec2-user@ec2-3-25-84-151.ap-southeast-2.compute.amazonaws.com sudo runuser -l splunk -c '/opt/splunk/bin/splunk restart'

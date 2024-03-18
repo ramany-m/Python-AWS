@@ -13,7 +13,7 @@ if os.path.isfile(script_file_name):
 pp = pprint.PrettyPrinter(indent=1)
 
 my_config = Config(
-    region_name = 'eu-west-3'
+    region_name = 'ap-southeast-2'
 )
 
 ec2 = boto3.client('ec2', config=my_config)
