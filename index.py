@@ -13,7 +13,7 @@ if os.path.isfile(script_file_name):
 pp = pprint.PrettyPrinter(indent=1)
 
 my_config = Config(
-    region_name = 'ap-southeast-2'
+    region_name = 'ap-northeast-3'
 )
 
 ec2 = boto3.client('ec2', config=my_config)
@@ -28,10 +28,7 @@ response = ec2.describe_instances(
     ]
 )
 
-# pp.pprint(response)
 
-# with open("test.json","a+") as filejson:
-#     filejson.write(str(response))
 
 instance_list = []
 
@@ -78,7 +75,7 @@ def get_ssh_commands():
 
 def prepare_splunk_installation():
     with open(script_file_name, "a+") as file:
-        file.write("cd C:\\Users\\muham\\Downloads\\")
+        file.write("cd C:\\Users\\murug\\Downloads\\")
         file.write("\n")
     for instance in instance_list:
         ssh_command = 'ssh -o "StrictHostKeyChecking no" -i {}.pem ec2-user@{}'.format(instance["KeyName"],instance["PublicDnsName"])
@@ -107,7 +104,7 @@ def execute_batch_script():
     subprocess.run([r"bulk-splunk-install.bat"])
 
 # start_instance()
-prepare_splunk_installation()
 # stop_instance()
-# get_ssh_commands()
-execute_batch_script()
+get_ssh_commands()
+# prepare_splunk_installation()
+# execute_batch_script()
