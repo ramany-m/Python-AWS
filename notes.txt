@@ -1,4 +1,0 @@
-ssh -i Singapore_Ramany.pem ec2-user@ec2-54-255-238-194.ap-southeast-1.compute.amazonaws.com sudo yum install git -y
-ssh -i Singapore_Ramany.pem ec2-user@ec2-54-255-238-194.ap-southeast-1.compute.amazonaws.com git clone https://github.com/SoftManiaTech/splunk_cluster_admin_training.git
-ssh -i Singapore_Ramany.pem ec2-user@ec2-54-255-238-194.ap-southeast-1.compute.amazonaws.com sudo chmod +x splunk_cluster_admin_training/splunk-install.sh
-ssh -i Singapore_Ramany.pem ec2-user@ec2-54-255-238-194.ap-southeast-1.compute.amazonaws.com sudo ./splunk_cluster_admin_training/splunk-install.sh 

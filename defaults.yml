@@ -1,0 +1,26 @@
+pem_file_path: "C:\\Users\\murug\\Downloads\\"
+
+region_name: "ap-southeast-2"
+
+splunk_admin_user: admin
+splunk_admin_password: Pa55word
+
+splunk_service_user: service_admin
+splunk_service_password: Pa55word
+
+instance_configs:
+  type: "t2.medium"
+  names: 
+    - Cluster_Manager
+    - Indexer_1
+    - Indexer_2
+    - Indexer_3
+    - Deployer
+    - Search_Head_1
+    - Search_Head_2
+    - Search_Head_3
+    - Monitoring_Console
+    - Heavy_Forwarder_1
+    - Heavy_Forwarder_2
+    - Intermediate_Forwarder
+    - License_Manager
